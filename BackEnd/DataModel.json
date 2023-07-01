@@ -19,7 +19,8 @@
         "received_transactions":{"data_type:":"array[str_transaction]"},
         "sent_transactions":{"data_type:":"array[str_transaction]"},
         "withdrawals":{"data_type:":"array[str_transaction]"},
-        "deposits":{"data_type:":"array[str_transaction]"}
+        "deposits":{"data_type:":"array[str_transaction]"},
+        "user_creation_date":"str"
 
 
 
