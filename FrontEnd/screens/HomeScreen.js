@@ -1,10 +1,8 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FindUserScreen from './FindUserScreen';
 
-const Stack = createNativeStackNavigator();
 
 
 const HomeScreen = () => {
