@@ -10,6 +10,7 @@ import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import FindUserScreen from "./FindUserScreen";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import TransactionsColumn from "../components/TransactionsColumn";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -29,6 +30,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView className="bg-[#e9e7e2]">
       <ScrollView className="pb-5">
+
         {/* Header */}
         <View className="flex-row px-4 pb-8 space-x-2">
           <View className="flex-1">
@@ -82,6 +84,15 @@ const HomeScreen = () => {
             </TouchableOpacity>
           </TouchableOpacity>
         </View>
+
+
+        {/* Transactions */}
+        <View className='bg-white mt-2 pt-6 px-4'>
+          <Text className='text-xl text-gray-800'>Recent activity</Text>
+
+          <TransactionsColumn />
+        </View>
+
       </ScrollView>
     </SafeAreaView>
   );
