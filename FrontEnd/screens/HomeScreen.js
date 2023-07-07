@@ -29,12 +29,12 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView className="bg-[#e9e7e2]">
-      <ScrollView className="pb-5">
+      <ScrollView>
 
         {/* Header */}
-        <View className="flex-row px-4 pb-8 space-x-2">
+        <View className="flex-row px-4 pb-6 space-x-3">
           <View className="flex-1">
-            <TouchableOpacity className="p-1 rounded-full bg-white">
+            <TouchableOpacity className="p-1 rounded-full bg-white w-8">
               <Ionicons name="menu" size={24} color="#192C88" />
             </TouchableOpacity>
           </View>
@@ -87,10 +87,14 @@ const HomeScreen = () => {
 
 
         {/* Transactions */}
-        <View className='bg-white mt-2 pt-6 px-4'>
+        <View className='bg-white mt-2 py-6 px-4'>
           <Text className='text-xl text-gray-800'>Recent activity</Text>
 
           <TransactionsColumn />
+
+          <TouchableOpacity className='pt-4'>
+            <Text className='text-center text-lg font-bold text-blue-600'>Show all</Text>
+          </TouchableOpacity>
         </View>
 
       </ScrollView>

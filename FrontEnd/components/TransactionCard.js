@@ -22,7 +22,7 @@ const TransactionCard = ({
           <View className="flex-1">
             <Text className="text-xl font-medium">{title}</Text>
           </View>
-          <Text className="text-xl font-medium">
+          <Text className={`text-xl font-medium ${isPaying ? 'text-black' : 'text-green-800'}`}>
             {isPaying ? "-" : "+"}
             <Currency quantity={amount} currency="USD" />
           </Text>

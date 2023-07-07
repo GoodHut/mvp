@@ -21,7 +21,7 @@ const TransactionsColumn = () => {
         amount={"2.99"}
       />
       <TransactionCard
-        id={0}
+        id={1}
         isPaying={true}
         title={"Apple Services"}
         date={"May 21"}
@@ -29,12 +29,20 @@ const TransactionsColumn = () => {
         amount={"2.99"}
       />
       <TransactionCard
-        id={0}
+        id={2}
         isPaying={true}
         title={"Apple Services"}
         date={"Apr 21"}
         description={"Automatic Payment"}
         amount={"2.99"}
+      />
+      <TransactionCard
+        id={3}
+        isPaying={false}
+        title={"cleverbridge Inc."}
+        date={"Jan 12"}
+        description={"Refund"}
+        amount={"53.28"}
       />
     </View>
 
