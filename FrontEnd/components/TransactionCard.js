@@ -27,6 +27,7 @@ const TransactionCard = ({
             <Currency quantity={amount} currency="USD" />
           </Text>
         </View>
+        
         <Text className="font-medium">{date}</Text>
         <Text className="font-medium">{description}</Text>
       </View>

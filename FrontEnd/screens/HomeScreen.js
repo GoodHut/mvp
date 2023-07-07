@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import FindUserScreen from "./FindUserScreen";
+import SearchScreen from "./SearchScreen";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import TransactionsColumn from "../components/TransactionsColumn";
 
@@ -30,7 +30,6 @@ const HomeScreen = () => {
   return (
     <SafeAreaView className="bg-[#e9e7e2]">
       <ScrollView>
-
         {/* Header */}
         <View className="flex-row px-4 pb-6 space-x-3">
           <View className="flex-1">
@@ -55,10 +54,10 @@ const HomeScreen = () => {
         {/* Some Notices */}
         <View className="p-4 space-y-3">
           <TouchableOpacity
-            onPress={() => navigation.navigate("FindUser")}
+            onPress={() => navigation.navigate("Search")}
             className="p-4 bg-white rounded-lg items-center shadow"
           >
-            <Text className="text-xl font-bold">Go to Find User</Text>
+            <Text className="text-xl font-bold">Go to Search</Text>
           </TouchableOpacity>
 
           <TouchableOpacity className="py-3 px-4 bg-white rounded-lg flex-row space-x-4 shadow">
@@ -85,18 +84,18 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
 
-
         {/* Transactions */}
-        <View className='bg-white mt-2 py-6 px-4'>
-          <Text className='text-xl text-gray-800'>Recent activity</Text>
+        <View className="bg-white mt-2 py-6 px-4">
+          <Text className="text-xl text-gray-800">Recent activity</Text>
 
           <TransactionsColumn />
 
-          <TouchableOpacity className='pt-4'>
-            <Text className='text-center text-lg font-bold text-blue-600'>Show all</Text>
+          <TouchableOpacity className="pt-4">
+            <Text className="text-center text-lg font-bold text-blue-600">
+              Show all
+            </Text>
           </TouchableOpacity>
         </View>
-
       </ScrollView>
     </SafeAreaView>
   );
