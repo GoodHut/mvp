@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // import Icon from 'react-native-ionicons';
@@ -48,7 +48,18 @@ export default function App() {
           headerStyle: { backgroundColor: "#e9e7e2" },
           headerTintColor: "#000000",
           headerTintStyle: { fontWeight: "bold" },
-          tabBarStyle: { height: 100, paddingTop: 10}
+          // tabBarStyle: ((route) => {
+          //   const routeName = getFocusedRouteNameFromRoute(route)
+          //   console.log(routeName)
+          //   if (routeName === 'Search') {
+          //     return { display: 'none' }
+          //   }
+          //   return
+          // }
+          // ) (route),
+          tabBarStyle: { 
+            height: 100, 
+            paddingTop: 10,}
         })}
       >
         <NavBar.Screen

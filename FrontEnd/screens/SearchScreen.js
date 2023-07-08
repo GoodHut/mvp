@@ -7,13 +7,19 @@ import {
   ScrollViewComponent,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import UsersColumn from "../components/UsersColumn";
 
 const SearchScreen = () => {
   const navigation = useNavigation();
+
+  // useLayoutEffect(() => {
+  //   navigation.setOptions({
+  //     tabBarVisible: false,
+  //   })
+  // }, []);
 
   return (
     <SafeAreaView className="bg-white flex-1">
