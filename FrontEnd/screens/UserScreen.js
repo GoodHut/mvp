@@ -13,7 +13,8 @@ import Currency from "react-currency-formatter";
 const UserScreen = () => {
   const navigation = useNavigation();
 
-  const [value, onChangeText] = useState("0");
+  const [paymentAmount, onChangeAmount] = useState("0");
+  const [message, onChangeMessage] = useState("");
 
   const {
     params: { id, name, phoneNumber },
@@ -50,9 +51,9 @@ const UserScreen = () => {
               keyboardType="numeric"
               maxLength={8}
               contextMenuHidden={true}
+              onChangeText={(amount) => onChangeAmount(amount)}
+              value={paymentAmount}
               className="text-4xl text-black font-bold"
-              onChangeText={(text) => onChangeText(text)}
-              value={value}
             />
           </View>
         </View>
@@ -61,13 +62,15 @@ const UserScreen = () => {
       {/* Comments + Request + Pay */}
       <View className="">
         {/* Comments associated with the transaction */}
-        <View className="border border-gray-500 rounded-lg mx-4 px-2 py-3">
-          <TextInput
-            placeholder="What's this for?"
-            keyboardType="default"
-            className="text-lg font-medium"
-          />
-        </View>
+        <TextInput
+          placeholder="What's this for?"
+          placeholderTextColor='gray'
+          keyboardType="default"
+          multiline={true}
+          onChangeText={(message) => onChangeMessage(message)}
+          value={message}
+          className="text-base font-medium mx-4 p-3 border border-gray-500 rounded-lg"
+        />
 
         {/* Send / Receive */}
         <View className="m-1 flex-row space-x-2 justify-center">
