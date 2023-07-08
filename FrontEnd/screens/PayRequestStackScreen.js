@@ -16,7 +16,7 @@ const PayRequestStackScreen = () => {
         component={SearchScreen}
         options={{ headerShown: false }}
       />
-      <PayRequestStack.Screen name="User" component={UserScreen} />
+      <PayRequestStack.Screen name="User" component={UserScreen} options={{ headerShown: false }}/>
       <PayRequestStack.Screen name='Scan' component={ScanScreen} />
     </PayRequestStack.Navigator>
   );

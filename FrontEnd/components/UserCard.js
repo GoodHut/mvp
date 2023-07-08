@@ -4,13 +4,19 @@ import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const UserCard = ({ id, name, phoneNumber }) => {
-
-    const navigation = useNavigation();
+  const navigation = useNavigation();
 
   return (
-    <TouchableOpacity 
-    onPress={() => navigation.navigate("User")}
-    className="py-0.5 bg-white rounded-lg flex-row space-x-2">
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("User", {
+          id,
+          name,
+          phoneNumber,
+        });
+      }}
+      className="py-0.5 bg-white rounded-lg flex-row space-x-2"
+    >
       {/* <View className="h-12 w-12 p-2 bg-[#192C88] border rounded-full">
         <Ionicons name="person-circle" size={30} color="white" />
       </View> */}
@@ -21,10 +27,10 @@ const UserCard = ({ id, name, phoneNumber }) => {
           <View className="flex-1">
             <Text className="text-xl font-medium">{name}</Text>
           </View>
-          <Ionicons name='ellipsis-vertical' size={24} color='gray' />
+          <Ionicons name="ellipsis-vertical" size={24} color="gray" />
         </View>
 
-        <Text className='font-medium text-gray-500'>{phoneNumber}</Text>
+        <Text className="font-medium text-gray-500">{phoneNumber}</Text>
       </View>
     </TouchableOpacity>
   );
