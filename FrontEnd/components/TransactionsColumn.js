@@ -18,7 +18,7 @@ const TransactionsColumn = () => {
         title={"Apple Services"}
         date={"Jun 21"}
         description={"Automatic Payment"}
-        amount={"2.99"}
+        amount={2.99}
       />
       <TransactionCard
         id={1}
@@ -26,7 +26,7 @@ const TransactionsColumn = () => {
         title={"Apple Services"}
         date={"May 21"}
         description={"Automatic Payment"}
-        amount={"2.99"}
+        amount={2.99}
       />
       <TransactionCard
         id={2}
@@ -34,7 +34,7 @@ const TransactionsColumn = () => {
         title={"Apple Services"}
         date={"Apr 21"}
         description={"Automatic Payment"}
-        amount={"2.99"}
+        amount={2.99}
       />
       <TransactionCard
         id={3}
@@ -42,7 +42,7 @@ const TransactionsColumn = () => {
         title={"cleverbridge Inc."}
         date={"Jan 12"}
         description={"Refund"}
-        amount={"53.28"}
+        amount={53.28}
       />
     </View>
 

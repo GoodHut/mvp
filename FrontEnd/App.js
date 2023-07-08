@@ -8,10 +8,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
 import HomeScreen from "./screens/HomeScreen";
-import FindUserScreen from "./screens/FindUserScreen";
+import SearchScreen from "./screens/SearchScreen";
 import CardsScreen from "./screens/CardsScreen";
 import MeScreen from "./screens/MeScreen";
-import PayRequestScreen from "./screens/PayRequestScreen";
 import HomeStackScreen from "./screens/HomeStackScreen";
 import CardsStackScreen from "./screens/CardsStackScreen";
 import PayRequestStackScreen from "./screens/PayRequestStackScreen";
