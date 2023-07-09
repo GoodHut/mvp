@@ -1,8 +1,12 @@
 # mvp
-MVP for DigiCFA.
 
+MVP for the FinTech startup DigiCFA, a digital payment solution for Central Africa. 
 
-## How to run
+---
+
+# How to run 
+
+Prerequisite: make sure Expo is properly setup. https://docs.expo.dev/get-started/installation/
 
 ```
 cd mvp/FrontEnd
