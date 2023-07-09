@@ -51,7 +51,7 @@ const UserScreen = () => {
               keyboardType="numeric"
               maxLength={8}
               contextMenuHidden={true}
-              onChangeText={(amount) => onChangeAmount(amount)}
+              onChangeText={(newAmount) => onChangeAmount(newAmount)}
               value={paymentAmount}
               className="text-4xl text-black font-bold"
             />
@@ -67,7 +67,7 @@ const UserScreen = () => {
           placeholderTextColor='gray'
           keyboardType="default"
           multiline={true}
-          onChangeText={(message) => onChangeMessage(message)}
+          onChangeText={(newMessage) => onChangeMessage(newMessage)}
           value={message}
           className="text-base font-medium mx-4 p-3 border border-gray-500 rounded-lg"
         />
