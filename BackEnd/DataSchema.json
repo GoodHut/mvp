@@ -1,0 +1,55 @@
+{
+
+    "user":{
+        "user_id":"str",
+        "user_name":"str",
+        "user_phone_number":"str",
+        "user_password":"str_encrypted",
+        "user_QRCode": "str",
+        "user_balance": "float64",
+        "user_card_info":{"data_type:":"obj",
+                        "body":[{
+                            "card_number":"str_encrypted",
+                            "exp_date":"str_encrypted",
+                            "sec_code":"str_encrypted",
+                            "cardholder_name":"str_encrypted"
+                        }]},
+        "privacy_preference":"str",
+        "user_contacts":"array[str_user]",
+        
+        "transactions":{
+            "transaction_id": "str",
+            "type": "received or sent"
+        },
+        "requests":{
+            "request_id": "str",
+            "type": "received or sent"
+        },
+
+        // "transactions":{"data_type:":"array[str_transaction]"},
+        // "received_transactions":{"data_type:":"array[str_transaction]"},
+        // "sent_transactions":{"data_type:":"array[str_transaction]"},
+        // "received_requests": {"data_type": "array[str_transaction]"},
+        // "sent_requests": {"data_type": "array[str_transaction]"},
+
+        
+        // Don't need to worry about this
+
+        // "withdrawals":{"data_type:":"array[str_transaction]"},
+        // "deposits":{"data_type:":"array[str_transaction]"},
+        "user_creation_date":"str"
+    },
+    "transaction":{
+        "transaction_id":"str",
+        "amount_transfered":"float64",
+        "transaction_sender":"str_user",
+        "transaction_receiver":"str_user",
+        "transaction_date":"str",
+        "transaction_code":"int: 0 -> peer to peer, 1 -> withdrawal, 2 -> deposit",
+        "deposit_verified": "bool",
+        "withdrawal_verified":"bool",
+        "request_validated": "bool",
+        "message": "str"
+    }
+
+}
