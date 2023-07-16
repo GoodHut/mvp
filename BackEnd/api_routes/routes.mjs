@@ -116,6 +116,7 @@ router.patch("/profile/remove_contact",async(req,res)=>{
 
 
 
+
 router.post("/transaction/create_transaction_request",async(req,res)=>{
     const session = client.startSession();
     let transaction_data = req.body;
@@ -133,51 +134,50 @@ router.post("/transaction/create_transaction_request",async(req,res)=>{
                 transaction_approved:0,
                 transaction_code:1,
                 transaction_message: transaction_data.transaction_message
-            },async function(error,result){
-                if(!error){
-                    let transactionID = result.insertedId;
-                    await users_collection.updateOne({_id:transaction_data.transaction_sender},
+            })
+            .then(async function(add_result,add_error){
+                if(!add_error){
+                    let transactionID = add_result.insertedId;
+                    await users_collection.updateOne({_id:new ObjectId(transaction_data.transaction_sender)},
                         {
                             $push:{sent_requests:transactionID}
-                        },
-                        function(error,result){
-                            if(error){
-                                console.error(error)
-                                res.send({}).status(400);
+                        })
+                        .then(function(update_result,update_error){
+                            if(update_error){
+                                console.error(update_error)
+                                res.send(update_error).status(400);
                             }
                     })
-                    await collection.updateOne({_id:transaction_data.transaction_receiver},
+                    await users_collection.updateOne({_id:new ObjectId(transaction_data.transaction_receiver)},
                         {
                             $push:{received_requests:transactionID}
-                        },
-                        function(error,result){
-                            if(!error){
-                                res.send({}).status(200);
+                        })
+                        .then(function(updatetwo_result,updatetwo_error){
+                            if(!updatetwo_error){
+                                res.send(updatetwo_result).status(200);
                             }
                             else{
-                                console.error(error)
-                                res.send({}).status(400);
+                                console.error(updatetwo_error)
+                                res.send(updatetwo_error).status(400);
                             }
                     })
                 }
                 else{
-                    console.error(error)
-                    res.send({}).status(400);
+                    console.error(add_error)
+                    res.send(add_error).status(400);
                 }
             })
         })
     }
-    catch(error){
-        console.error(error)
-        res.send({}).status(400);
+    catch(transact_error){
+        console.error(transact_error)
+        res.send(transact_error).status(400);
     }
     finally{
         await session.endSession()
     }
 
-
 })
-
 
 
 router.patch("/transaction/approve_transaction",async(req,res)=>{
