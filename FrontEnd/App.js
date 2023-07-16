@@ -71,17 +71,17 @@ export default function App() {
         })}
       >
         <NavBar.Screen
-          name="Home"
-          component={HomeStackScreen}
-          options={{ headerShown: false }}
-        />
-        <NavBar.Screen
           name="Transfer"
           component={PayRequestStackScreen}
           options={{
             headerShown: false,
             // tabBarStyle: { display: 'none'},
           }}
+        />
+        <NavBar.Screen
+          name="Home"
+          component={HomeStackScreen}
+          options={{ headerShown: false }}
         />
 
         <NavBar.Screen
