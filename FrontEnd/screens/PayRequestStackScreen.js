@@ -6,9 +6,10 @@ import UserScreen from "./UserScreen";
 import ScanScreen from "./ScanScreen";
 import PaymentMethodsScreen from "./PaymentMethodsScreen";
 import TESTScreen from "./TESTScreen";
+import { createStackNavigator } from "@react-navigation/stack";
 
 
-const PayRequestStack = createNativeStackNavigator();
+const PayRequestStack = createStackNavigator();
 
 const PayRequestStackScreen = () => {
   return (

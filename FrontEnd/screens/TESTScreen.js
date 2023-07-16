@@ -6,7 +6,7 @@ import {
     StyleSheet,
     useWindowDimensions,
   } from 'react-native';
-  import { cardA } from '@react-navigation/stack';
+  import { useCardAnimation } from '@react-navigation/stack';
   import { Button } from 'react-native-paper';
   
   const styles = StyleSheet.create({
@@ -22,7 +22,7 @@ import {
   });
   function TESTScreen({ navigation }) {
     const { height } = useWindowDimensions();
-    const current = navigation.dangerouslyGetParent()?.getCurrentOptions().cardStyleInterpolator;
+    const { current } = useCardAnimation();
   
     return (
       <View
