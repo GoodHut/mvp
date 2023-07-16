@@ -21,11 +21,11 @@ const UserScreen = () => {
   } = useRoute();
 
   return (
-    <SafeAreaView className="flex-col">
+    <SafeAreaView className="flex-col h-full">
       {/* Upper Portion */}
 
       {/* User Info */}
-      <View className="border flex-row justify-items-start items-center space-x-2 pt-1 mx-4">
+      <View className="flex-row justify-items-start items-center space-x-2 pt-1 mx-4">
         <TouchableOpacity onPress={navigation.goBack} className="flex-1">
           <Ionicons name="arrow-back" size={30} color="grey" />
         </TouchableOpacity>
@@ -43,7 +43,7 @@ const UserScreen = () => {
       </View>
 
       {/* Payment Amount */}
-      <View className="flex-row h-20 mt-6 justify-center items-end border">
+      <View className="flex-row h-20 mt-6 justify-center">
         <View className="self-start">
           <Text className="text-5xl">$</Text>
         </View>
@@ -61,7 +61,7 @@ const UserScreen = () => {
             contextMenuHidden={true}
             onChangeText={(newAmount) => onChangeAmount(newAmount)}
             value={paymentAmount}
-            className="text-7xl border pt-8"
+            className="text-7xl font-medium pt-8"
           />
         </View>
       </View>
@@ -71,7 +71,7 @@ const UserScreen = () => {
       </View>
 
       {/* Comments + Request + Pay */}
-      <View className="mt-auto border">
+      <View className="mt-auto">
         {/* Comments associated with the transaction */}
         <TextInput
           placeholder="What's this for?"
@@ -80,14 +80,14 @@ const UserScreen = () => {
           multiline={true}
           onChangeText={(newMessage) => onChangeMessage(newMessage)}
           value={message}
-          className="text-base font-medium mx-4 p-3 border border-gray-500 rounded-lg"
+          className="text-base font-medium mx-4 p-3 bg-[#e9e7e2] rounded-3xl"
         />
 
-        <View className="m-1 flex-row space-x-2 justify-center">
+        <View className="m-4 flex-row space-x-4 justify-center">
           {/* Request */}
           <TouchableOpacity
             onPress={() => navigation.navigate("Test")}
-            className="bg-blue-500 rounded-full py-3 px-8"
+            className="bg-blue-900 rounded-full py-3 px-8"
           >
             <Text className="text-white text-xl font-extrabold">Request</Text>
           </TouchableOpacity>
@@ -95,7 +95,7 @@ const UserScreen = () => {
           {/* Send */}
           <TouchableOpacity
             onPress={() => navigation.navigate("PaymentMethods")}
-            className="bg-blue-500 rounded-full py-3 px-14"
+            className="bg-blue-900 rounded-full py-3 px-14"
           >
             <Text className="text-white text-xl font-extrabold">Pay</Text>
           </TouchableOpacity>
