@@ -14,6 +14,7 @@ import { useCardAnimation } from "@react-navigation/stack";
 import { useNavigation, useTheme } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons"
 import { ScrollView } from "react-native-gesture-handler";
+import CardsColumn from "../components/CardsColumn";
 
 const PaymentMethodsScreen = ({ navigation }) => {
   const { height } = useWindowDimensions();
@@ -49,11 +50,11 @@ const PaymentMethodsScreen = ({ navigation }) => {
       >
 
 
-        <View className="flex-1 p-4 bg-[#E5E5E5] rounded-3xl">
+        <View className="flex-1 p-4 bg-white rounded-3xl">
 
           <View className='flex-col h-2/3'>
             {/* Top Portion */}
-            <View className='flex-1 flex-row'>
+            <View className='flex-row mb-4'>
               <TouchableOpacity onPress={navigation.goBack} className="flex-1">
                 <Ionicons name="arrow-back" size={30} color="grey" />
               </TouchableOpacity>
@@ -65,7 +66,7 @@ const PaymentMethodsScreen = ({ navigation }) => {
 
             {/* Cards */}
             <ScrollView>
-
+              <CardsColumn />
             </ScrollView>
 
             {/* Bottom Portion */}
