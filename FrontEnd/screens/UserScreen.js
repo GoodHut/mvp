@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
   TextInput,
+  KeyboardAvoidingView,
 } from "react-native";
 import React, { useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -21,86 +22,93 @@ const UserScreen = () => {
   } = useRoute();
 
   return (
-    <SafeAreaView className="flex-col h-full">
-      {/* Upper Portion */}
+    <SafeAreaView className="flex-col flex-1">
+      <View className="flex-1">
+        {/* Upper Portion */}
 
-      {/* User Info */}
-      <View className="flex-row justify-items-start items-center space-x-2 pt-1 mx-4">
-        <TouchableOpacity onPress={navigation.goBack} className="flex-1">
-          <Ionicons name="arrow-back" size={30} color="grey" />
-        </TouchableOpacity>
+        {/* User Info */}
+        <View className="flex-row justify-items-start items-center space-x-2 pt-1 mx-4">
+          <TouchableOpacity onPress={navigation.goBack} className="flex-1">
+            <Ionicons name="arrow-back" size={30} color="grey" />
+          </TouchableOpacity>
 
-        <Text className="text-lg font-semibold">{name}</Text>
+          <Text className="text-lg font-semibold">{name}</Text>
 
-        <View className="flex-1"></View>
+          <View className="flex-1"></View>
 
-        {/* <TouchableOpacity
-          onPress={() => navigation.navigate("HomeScreen")}
-          className=""
-        >
-          <Ionicons name="close" size={30} color="grey" />
-        </TouchableOpacity> */}
-      </View>
-
-      {/* Payment Amount */}
-      <View className="flex-row h-20 mt-6 justify-center">
-        <View className="self-start">
-          <Text className="text-5xl">$</Text>
+          {/* <TouchableOpacity
+            onPress={() => navigation.navigate("HomeScreen")}
+            className=""
+          >
+            <Ionicons name="close" size={30} color="grey" />
+          </TouchableOpacity> */}
         </View>
 
-        {/* <View className='border'>
-          <Text className='text-7xl font-medium '>0.00</Text>
-        </View> */}
+        {/* Payment Amount */}
+        <View className="flex-row h-20 mt-6 justify-center">
+          <View className="self-start">
+            <Text className="text-5xl">$</Text>
+          </View>
 
-        <View>
-          <TextInput
-            // inputMode="numeric"
-            keyboardType="numeric"
-            maxLength={8}
-            placeholder="0.00"
-            contextMenuHidden={true}
-            onChangeText={(newAmount) => onChangeAmount(newAmount)}
-            value={paymentAmount}
-            className="text-7xl font-medium pt-8"
-          />
+          {/* <View className='border'>
+            <Text className='text-7xl font-medium '>0.00</Text>
+          </View> */}
+
+          <View>
+            <TextInput
+              // inputMode="numeric"
+              keyboardType="numeric"
+              maxLength={8}
+              placeholder="0.00"
+              contextMenuHidden={true}
+              onChangeText={(newAmount) => onChangeAmount(newAmount)}
+              value={paymentAmount}
+              className="text-7xl font-medium pt-8"
+            />
+          </View>
+        </View>
+
+        <View className="m-3 self-center bg-[#e9e7e2] rounded-lg">
+          <Text className="text-lg px-1">USD</Text>
         </View>
       </View>
-
-      <View className="m-3 self-center bg-[#e9e7e2] rounded-lg">
-        <Text className="text-lg px-1">USD</Text>
-      </View>
+      
 
       {/* Comments + Request + Pay */}
-      <View className="mt-auto">
-        {/* Comments associated with the transaction */}
-        <TextInput
-          placeholder="What's this for?"
-          placeholderTextColor="gray"
-          keyboardType="default"
-          multiline={true}
-          onChangeText={(newMessage) => onChangeMessage(newMessage)}
-          value={message}
-          className="text-base font-medium mx-4 p-3 bg-[#e9e7e2] rounded-3xl"
-        />
+      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
 
-        <View className="m-4 flex-row space-x-4 justify-center">
-          {/* Request */}
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Test")}
-            className="bg-blue-900 rounded-full py-3 px-8"
-          >
-            <Text className="text-white text-xl font-extrabold">Request</Text>
-          </TouchableOpacity>
+        <View className="mt-auto">
+          {/* Comments associated with the transaction */}
+            <TextInput
+              placeholder="What's this for?"
+              placeholderTextColor="gray"
+              keyboardType="default"
+              multiline={true}
+              onChangeText={(newMessage) => onChangeMessage(newMessage)}
+              value={message}
+              className="text-base font-medium mx-4 p-3 bg-[#e9e7e2] rounded-3xl"
+            />
+          
+          <View className="m-4 flex-row space-x-4 justify-center">
+            {/* Request */}
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Test")}
+              className="bg-blue-900 rounded-full py-3 px-8"
+            >
+              <Text className="text-white text-xl font-extrabold">Request</Text>
+            </TouchableOpacity>
 
-          {/* Send */}
-          <TouchableOpacity
-            onPress={() => navigation.navigate("PaymentMethods")}
-            className="bg-blue-900 rounded-full py-3 px-14"
-          >
-            <Text className="text-white text-xl font-extrabold">Pay</Text>
-          </TouchableOpacity>
+            {/* Send */}
+            <TouchableOpacity
+              onPress={() => navigation.navigate("PaymentMethods")}
+              className="bg-blue-900 rounded-full py-3 px-14"
+            >
+              <Text className="text-white text-xl font-extrabold">Pay</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+
+      </KeyboardAvoidingView>
 
       {/* Search */}
       {/* <View className="px-4 py-2 rounded-full border-2 border-blue-600 flex-1">

@@ -1,14 +1,11 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import {
   NavigationContainer,
   getFocusedRouteNameFromRoute,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-// import Icon from 'react-native-ionicons';
-// import Icon from 'react-native-ionicons';
 import { Ionicons } from "@expo/vector-icons";
+import { useEffect, useState } from "react";
 
 import HomeScreen from "./screens/HomeScreen";
 import SearchScreen from "./screens/SearchScreen";
@@ -20,12 +17,51 @@ import PayRequestStackScreen from "./screens/PayRequestStackScreen";
 import MeStackScreen from "./screens/MeStackScreen";
 import ScanScreen from "./screens/ScanScreen";
 import TESTScreen from "./screens/TESTScreen";
+import LoginSignupStackScreen from "./screens/loginSignup/LoginSignupStackScreen";
 
-// const Stack = createNativeStackNavigator();
 const NavBar = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
 
 export default function App() {
+
+  [userToken, setUserToken] = useState("hi")
+
+  const navigationScreens = (userToken == null) ? (
+    <NavBar.Screen 
+      component={LoginSignupStackScreen}
+      name="LoginSignup"
+      options={{
+        headerShown: false,
+        tabBarStyle: {display: "none"}
+      }}
+    />
+  ) : (
+    <NavBar.Group 
+        screenOptions={{
+          headerShown: false,
+    }}>
+      <NavBar.Screen
+        name="Transfer"
+        component={PayRequestStackScreen}
+      />
+
+      <NavBar.Screen
+        name="Home"
+        component={HomeStackScreen}
+      />
+
+      <NavBar.Screen
+        name="Wallet"
+        component={CardsStackScreen}
+      />
+
+      <NavBar.Screen
+        name="Me"
+        component={MeStackScreen}
+      />
+    </NavBar.Group>
+  )
+ 
   return (
     <NavigationContainer>
       <NavBar.Navigator
@@ -56,7 +92,7 @@ export default function App() {
 
           // Hide the tab bar for certain screens
           tabBarStyle: ((route) => {
-            const routeName = getFocusedRouteNameFromRoute(route) ?? "";
+            const routeName = getFocusedRouteNameFromRoute(route);
             if (routeName === "User" || routeName === "PaymentMethods") {
               return {
                 display: "none",
@@ -70,31 +106,7 @@ export default function App() {
           })(route),
         })}
       >
-        <NavBar.Screen
-          name="Transfer"
-          component={PayRequestStackScreen}
-          options={{
-            headerShown: false,
-            // tabBarStyle: { display: 'none'},
-          }}
-        />
-        <NavBar.Screen
-          name="Home"
-          component={HomeStackScreen}
-          options={{ headerShown: false }}
-        />
-
-        <NavBar.Screen
-          name="Wallet"
-          component={CardsStackScreen}
-          options={{ headerShown: false }}
-        />
-
-        <NavBar.Screen
-          name="Me"
-          component={MeStackScreen}
-          options={{ headerShown: false }}
-        />
+      {navigationScreens}
       </NavBar.Navigator>
     </NavigationContainer>
   );
