@@ -34,7 +34,8 @@ const SearchScreen = () => {
           <TextInput
             placeholder="Phone number, name"
             keyboardType="default"
-            className="text-lg font-medium"
+            className="font-medium"
+            style={{fontSize: 18}}
           />
         </View>
 
