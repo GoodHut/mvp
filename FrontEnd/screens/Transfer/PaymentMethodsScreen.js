@@ -14,7 +14,7 @@ import { useCardAnimation } from "@react-navigation/stack";
 import { useNavigation, useTheme } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons"
 import { ScrollView } from "react-native-gesture-handler";
-import CardsColumn from "../components/CardsColumn";
+import CardsColumn from "../../components/CardsColumn";
 
 const PaymentMethodsScreen = ({ navigation }) => {
   const { height } = useWindowDimensions();

@@ -10,7 +10,7 @@ import {
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
-import UsersColumn from "../components/UsersColumn";
+import UsersColumn from "../../components/UsersColumn";
 
 const SearchScreen = () => {
   const navigation = useNavigation();
@@ -35,7 +35,7 @@ const SearchScreen = () => {
             placeholder="Phone number, name"
             keyboardType="default"
             className="font-medium"
-            style={{fontSize: 18}}
+            style={{ fontSize: 18 }}
           />
         </View>
 
@@ -62,7 +62,6 @@ const SearchScreen = () => {
 
         {/* List of top Users */}
         <UsersColumn />
-
       </ScrollView>
     </SafeAreaView>
   );
