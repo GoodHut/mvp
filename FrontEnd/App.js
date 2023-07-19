@@ -7,24 +7,18 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 
-import HomeScreen from "./screens/HomeScreen";
-import SearchScreen from "./screens/SearchScreen";
-import CardsScreen from "./screens/CardsScreen";
-import MeScreen from "./screens/MeScreen";
-import HomeStackScreen from "./screens/HomeStackScreen";
-import CardsStackScreen from "./screens/CardsStackScreen";
-import PayRequestStackScreen from "./screens/PayRequestStackScreen";
-import MeStackScreen from "./screens/MeStackScreen";
-import ScanScreen from "./screens/ScanScreen";
-import TESTScreen from "./screens/TESTScreen";
-import LoginSignupStackScreen from "./screens/loginSignup/LoginSignupStackScreen";
+import HomeStackScreen from "./screens/Home/HomeStackScreen";
+import CardsStackScreen from "./screens/Wallet/CardsStackScreen";
+import PayRequestStackScreen from "./screens/Transfer/PayRequestStackScreen";
+import MeStackScreen from "./screens/Me/MeStackScreen";
+import LoginSignupStackScreen from "./screens/LoginSignup/LoginSignupStackScreen";
 
 const NavBar = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
 
 export default function App() {
 
-  [userToken, setUserToken] = useState("hi")
+  [userToken, setUserToken] = useState('')
 
   const navigationScreens = (userToken == null) ? (
     <NavBar.Screen 
@@ -93,7 +87,9 @@ export default function App() {
           // Hide the tab bar for certain screens
           tabBarStyle: ((route) => {
             const routeName = getFocusedRouteNameFromRoute(route);
-            if (routeName === "User" || routeName === "PaymentMethods") {
+            if (routeName === "User" ||
+                routeName === "PaymentMethods" ||
+                routeName === "SendReview") {
               return {
                 display: "none",
               };

@@ -98,9 +98,15 @@ const UserScreen = () => {
               <Text className="text-white text-xl font-extrabold">Request</Text>
             </TouchableOpacity>
 
-            {/* Send */}
+            {/* Pay */}
             <TouchableOpacity
-              onPress={() => navigation.navigate("PaymentMethods")}
+              onPress={() => {
+                navigation.navigate("PaymentMethods", {
+                  name,
+                  paymentAmount,
+                  message,
+                });
+              }}
               className="bg-blue-900 rounded-full py-3 px-14"
             >
               <Text className="text-white text-xl font-extrabold">Pay</Text>

@@ -8,9 +8,9 @@ import {
 } from "react-native";
 import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import SearchScreen from "./SearchScreen";
+import SearchScreen from "../Transfer/SearchScreen";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import TransactionsColumn from "../components/TransactionsColumn";
+import TransactionsColumn from "../../components/TransactionsColumn";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -36,9 +36,10 @@ const HomeScreen = () => {
             <Ionicons name="trophy" size={20} color="#192C88" />
           </TouchableOpacity> */}
 
-          <TouchableOpacity 
-          onPress={() => navigation.navigate("Scan")}
-          className="p-1.5 rounded-full bg-white">
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Scan")}
+            className="p-1.5 rounded-full bg-white"
+          >
             <Ionicons name="qr-code" size={40} color="#192C88" />
           </TouchableOpacity>
 
@@ -49,7 +50,6 @@ const HomeScreen = () => {
 
         {/* Some Notices */}
         <View className="px-4 pb-4 space-y-3">
-
           {/* Getting rid of this button soon */}
           <TouchableOpacity
             onPress={() => navigation.navigate("Search")}
@@ -57,7 +57,6 @@ const HomeScreen = () => {
           >
             <Text className="text-xl font-bold">TransferScreen (Modal)</Text>
           </TouchableOpacity>
-
 
           <TouchableOpacity className="py-3 px-4 bg-white rounded-lg flex-row space-x-4 shadow">
             <Ionicons name="flash" size={40} color="#7152C7" />
