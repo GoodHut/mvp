@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { Ionicons, FontAwesome5, MaterialCommunityIcons,Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import Currency from 'react-currency-formatter'
+import { useSelector } from "react-redux";
+import { selectSelf } from "../features/selfSlice";
 
 const PaymentMethodCard = ({cardID, cardName, cardType, cardNumber}) => {
 
-    // PULL THE BALANCE from backend
-    const balance = 4096.88
+    // More efficient way of only selecting the balance?
+    const self = useSelector(selectSelf)
 
     const [isPressed, setIsPressed] = useState(() => {
         if (cardType==='Balance') return true;
@@ -29,7 +31,7 @@ const PaymentMethodCard = ({cardID, cardName, cardType, cardNumber}) => {
             </View>
           </View>
 
-          {cardType==='Balance' && <Text className='font-medium text-gray-500'>Balance: <Currency quantity={balance} currency="USD"/></Text>}
+          {cardType==='Balance' && <Text className='font-medium text-gray-500'>Balance: <Currency quantity={self.user_balance} currency="USD"/></Text>}
           
           {cardType!='Balance' && <Text className="font-medium text-gray-500">{cardType} ••••{cardNumber}</Text>}
         </View>
