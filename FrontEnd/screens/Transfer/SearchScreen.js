@@ -25,7 +25,7 @@ const SearchScreen = () => {
     <SafeAreaView className="bg-white flex-1">
       {/* Top Bar */}
       <View className="flex-row items-center space-x-2 pt-2 pb-6 mx-4">
-        <TouchableOpacity onPress={navigation.goBack} className="">
+        <TouchableOpacity onPress={() => navigation.navigate("Home")} className="">
           <Ionicons name="arrow-back" size={30} color="grey" />
         </TouchableOpacity>
 
