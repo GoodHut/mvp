@@ -87,7 +87,9 @@ export default function App() {
           // Hide the tab bar for certain screens
           tabBarStyle: ((route) => {
             const routeName = getFocusedRouteNameFromRoute(route);
-            if (routeName === "User" || routeName === "PaymentMethods") {
+            if (routeName === "User" ||
+                routeName === "PaymentMethods" ||
+                routeName === "SendReview") {
               return {
                 display: "none",
               };

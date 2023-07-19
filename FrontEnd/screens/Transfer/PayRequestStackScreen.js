@@ -7,6 +7,7 @@ import ScanScreen from "./ScanScreen";
 import PaymentMethodsScreen from "./PaymentMethodsScreen";
 import TESTScreen from "../TESTScreen";
 import { createStackNavigator } from "@react-navigation/stack";
+import SendReviewScreen from "./SendReviewScreen";
 
 const PayRequestStack = createStackNavigator();
 
@@ -16,11 +17,6 @@ const PayRequestStackScreen = () => {
       <PayRequestStack.Screen
         name="Search"
         component={SearchScreen}
-        options={
-          {
-            // presentation: 'presentationModal',
-          }
-        }
       />
       <PayRequestStack.Screen name="Scan" component={ScanScreen} />
 
@@ -38,10 +34,8 @@ const PayRequestStackScreen = () => {
             // cardOverlayEnabled: true,
           }}
         >
-          <PayRequestStack.Screen
-            name="PaymentMethods"
-            component={PaymentMethodsScreen}
-          />
+          <PayRequestStack.Screen name="PaymentMethods" component={PaymentMethodsScreen}/>
+          <PayRequestStack.Screen name="SendReview" component={SendReviewScreen}/>
           <PayRequestStack.Screen name="Test" component={TESTScreen} />
         </PayRequestStack.Group>
       </PayRequestStack.Group>

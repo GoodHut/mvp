@@ -9,16 +9,16 @@ const CardsColumn = () => {
   // })
   return (
     <View>
-      <PaymentMethodCard id={0} name={"DigiCFA Balance"} type={"Balance"} cardNumber={"N/A"} />
+      <PaymentMethodCard cardID={0} cardName={"DigiCFA Balance"} cardType={"Balance"} cardNumber={"N/A"} />
       <PaymentMethodCard
-        id={0}
-        name={"Bank of America Customized Cash Rewards VISA"}
-        type={"Credit"}
+        cardID={0}
+        cardName={"Bank of America Customized Cash Rewards VISA"}
+        cardType={"Credit"}
         cardNumber={"6642"}
       />
-      {/* <UserCard id={0} name={"Edmond Wang"} phoneNumber={"213 214 0824"} />
-      <UserCard id={0} name={"Henry Liu"} phoneNumber={"949 307 3594‬"} />
-      <UserCard id={0} name={"Daniel Bai"} phoneNumber={"unknown"} /> */}
+      {/* <UserCard cardID={0} cardName={"Edmond Wang"} phoneNumber={"213 214 0824"} />
+      <UserCard cardID={0} cardName={"Henry Liu"} phoneNumber={"949 307 3594‬"} />
+      <UserCard cardID={0} cardName={"Daniel Bai"} phoneNumber={"unknown"} /> */}
     </View>
   );
 };
