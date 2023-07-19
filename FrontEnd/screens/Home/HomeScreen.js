@@ -6,20 +6,36 @@ import {
   Touchable,
   ScrollView,
 } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import SearchScreen from "../Transfer/SearchScreen";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import TransactionsColumn from "../../components/TransactionsColumn";
+import TransactionCard from "../../components/TransactionCard";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
 
+  const axios = require("axios");
+
+  const [transactionHistory, setTransactionHistory] = useState([]);
+
   // Fetching Past Transactions
 
-  // useEffect(() => {
-
-  // }, [])
+  useEffect(() => {
+    axios
+      .get("{{base_url}}/transaction/transaction_data", {
+        params: {
+          ID: "64b851f72736819c427e0708",
+        },
+      })
+      .then((data) => {
+        setTransactionHistory(data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <SafeAreaView className="bg-[#e9e7e2]">
@@ -87,6 +103,17 @@ const HomeScreen = () => {
           <Text className="text-xl text-gray-800">Recent activity</Text>
 
           <TransactionsColumn />
+
+          {transactionHistory?.map((transaction) => (
+            <TransactionCard
+              id={transaction.transaction_id}
+              isPaying={transaction_code}
+              title={transaction.transaction_sender}
+              date={transaction.transaction_date}
+              description={transaction.transaction_date}
+              amount={transaction.amount_transferred}
+            />
+          ))}
 
           <TouchableOpacity className="pt-4">
             <Text className="text-center text-lg font-bold text-blue-600">

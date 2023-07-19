@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const axios = require("axios");
 
 
 // Maybe write a thunk to fetch user info. In which case user info is passed during login, in which case initialState should be null
