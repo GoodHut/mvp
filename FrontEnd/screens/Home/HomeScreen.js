@@ -22,20 +22,20 @@ const HomeScreen = () => {
 
   // Fetching Past Transactions
 
-  useEffect(() => {
-    axios
-      .get("{{base_url}}/transaction/transaction_data", {
-        params: {
-          ID: "64b851f72736819c427e0708",
-        },
-      })
-      .then((data) => {
-        setTransactionHistory(data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("localhost:5050/routes/transaction/transaction_data", {
+  //       params: {
+  //         ID: "64b851f72736819c427e0708",
+  //       },
+  //     })
+  //     .then((data) => {
+  //       setTransactionHistory(data);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   return (
     <SafeAreaView className="bg-[#e9e7e2]">
