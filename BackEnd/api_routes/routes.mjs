@@ -282,4 +282,22 @@ router.patch("/transaction/approve_transaction", async (req, res) => {
   }
 });
 
+router.get("/transaction/transaction_data",async(req,res)=>{
+  let transaction_id = req.body.transaction_id;
+  let transaction_collection = db.collection("transactions");
+  await transaction_collection.findOne({_id:new ObjectId(transaction_id)}).then(async (result,error)=>{
+    if(!error){
+      res.send(result).status(200);
+    }
+    else{
+      console.error(error);
+      res.send(error).status(400);
+
+    }
+  })
+
+
+
+})
+
 export default router;
